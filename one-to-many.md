@@ -40,19 +40,20 @@ create table `phones` (
 
 
 ### Inser data to users table
-
+```
 INSERT INTO users
     (name)
 VALUES
     ('Ei Khant Mon'),
     ('Kyaw Kyaw'),
     ('Min Min');
+```
 
 
 
 ### Inser data to phones table.
 
-
+```
 INSERT INTO phones
     (user_id, number)
 VALUES
@@ -60,6 +61,7 @@ VALUES
     (1, 09888888888),
     (2, 09111111111),
     (2, 09555555555);
+```
 
 
 ### Querying the data.
