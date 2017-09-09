@@ -1,5 +1,6 @@
 ### Schema
 
+```
 users
     id | name 
     ---------
@@ -13,9 +14,11 @@ phones
     2 | 09888888888 | 1
     3 | 09111111111  | 2
     4 | 09555555555   | 2
+```
 
 
 ### Schema create
+```
 
 create table `users` (
     `id` int unsigned not null auto_increment,
@@ -25,12 +28,14 @@ create table `users` (
 
 create table `phones` (
     `id` int unsigned not null auto_increment,
-    `user_id` int unsigned not null,
+    `user_id` int unsigned,
     `number` varchar(25) not null,
     index phone_user_index(`user_id`),
-    foreign key (`user_id`) references users(`id`) on delete cascade,
+    foreign key (`user_id`) references users(`id`) on delete set null,
     primary key(`id`)
 );
+
+```
 
 
 
@@ -40,7 +45,8 @@ INSERT INTO users
     (name)
 VALUES
     ('Ei Khant Mon'),
-    ('Kyaw Kyaw');
+    ('Kyaw Kyaw'),
+    ('Min Min');
 
 
 
@@ -59,14 +65,22 @@ VALUES
 ### Querying the data.
 
 #### INNER JOIN
-
+```
 SELECT users.name, phones.number
 FROM `users`
 INNER JOIN `phones` on users.id = phones.user_id;
-
+```
 
 #### LEFT JOIN
+```
+SELECT users.name, phones.number
+FROM `users`
+LEFT JOIN `phones` on users.id = phones.user_id;
+```
 
-SELECT user.name, course.name
-FROM `user`
-LEFT JOIN `course` on user.course = course.id;
+#### RIGHT JOIN
+```
+SELECT users.name, phones.number
+FROM `users`
+RIGHT JOIN `phones` on users.id = phones.user_id;
+```
