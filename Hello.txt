@@ -1,1 +1,4 @@
 Hello!
+
+git config --global user.name "eikhantmon"
+

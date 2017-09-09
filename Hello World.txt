@@ -70,3 +70,5 @@ INNER JOIN `phones` on users.id = phones.user_id;
 SELECT user.name, course.name
 FROM `user`
 LEFT JOIN `course` on user.course = course.id;
+
+Hello World!
